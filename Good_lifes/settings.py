@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True')=="True"
+
 
 ALLOWED_HOSTS = ["*"]
 
@@ -105,14 +105,12 @@ WSGI_APPLICATION = 'Good_lifes.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 
-if not DEBUG:
-    DATABASES = {
+DATABASES = {
         "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
         
-    }
-else:
-        
+}
 
+"""
    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -123,6 +121,10 @@ else:
         'PASSWORD': '1232478847',
     }
 }
+
+"""
+
+
 
 
 
